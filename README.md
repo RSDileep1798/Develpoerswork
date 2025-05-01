@@ -7,3 +7,7 @@ Deployment an application by Containerization software deployment process that b
 
 KUBERNETES COMMANDS 
 [Kubernetes Cmd.pdf](https://github.com/user-attachments/files/19623834/Kubernetes.Cmd.pdf)
+
+
+Data Structure Algorithm 
+LinkedLIst
