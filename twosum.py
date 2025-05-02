@@ -2,16 +2,20 @@ from typing import List
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        for i in range(len(nums)):
-            for j in range(i + 1, len(nums)):
-                if nums[j] == target - nums[i]:
-                    return [i, j]
+        res ={}
+        for num in range(len(nums)):
+            subvalue = target - nums[num]
+
+            if subvalue in list(res.keys()):
+                return (res.get(subvalue), num)
+            res[nums[num]]= num
+            print(res)    
         return []
 
 # tesing 
 if __name__ == '__main__':
-    nums = [2, 7, 11, 15]
-    target = 9
+    nums = [1,3,6,9]
+    target = 12
 
     solution = Solution()
     result = solution.twoSum(nums, target)
