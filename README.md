@@ -17,4 +17,9 @@ KUBERNETES COMMANDS
 
 
 Data Structure Algorithm 
-LinkedLIst
+
+- LinkedLIst
+
+Python Cheat Sheet 
+
+file:///Users/saidileepramisetty/Documents/DevOps%20MT/Python%20Cheat%20Sheet.pdf
