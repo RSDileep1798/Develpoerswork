@@ -19,6 +19,12 @@ KUBERNETES COMMANDS
 Data Structure Algorithm 
 
 - LinkedLIst
+- Array
+- Hash Map
+- Sets
+- String 
 
 Python Cheat Sheet 
+
+
 
