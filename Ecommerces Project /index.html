@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TVG Houston</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    /* COLORS, VARIABLES, AND FULL CSS STYLES */
+    :root {
+      --color-bg: #050814;
+      --color-bg-alt: #0b1020;
+      --color-primary: #f5b010;
+      --color-primary-soft: rgba(245, 176, 16, 0.1);
+      --color-text: #f5f5f5;
+      --color-muted: #a0a6c3;
+      --max-width: 1100px;
+      --radius-lg: 16px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #141a33, #02030a 60%);
+      color: var(--color-text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+    .section { padding: 4rem 0; }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(2,3,10,0.9);
+      border-bottom: 1px solid rgba(63,75,135,0.5);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 40%;
+      background: conic-gradient(from 220deg, #f5b010, #ffffff, #f5b010);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.9rem;
+    }
+
+    .logo-text strong {
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      color: var(--color-muted);
+    }
+
+    .logo-text span { font-weight: 600; }
+
+    .nav-links {
+      display: none;
+      gap: 1.5rem;
+      color: var(--color-muted);
+    }
+
+    .nav-cta {
+      display: none;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .nav-links { display: flex; }
+      .nav-cta { display: flex; }
+    }
+
+    /* HERO */
+    .hero { padding-top: 4rem; padding-bottom: 4.5rem; }
+
+    .hero-grid {
+      display: grid;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 3fr 2.7fr;
+        align-items: center;
+      }
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      line-height: 1.05;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    /* CONTACT FORM STYLING */
+    input, textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-top: 0.3rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+      border-radius: 8px;
+    }
+
+    .btn {
+      background: var(--color-primary);
+      color: black;
+      padding: 0.8rem 1.4rem;
+      border-radius: 10px;
+      display: inline-block;
+      font-weight: 600;
+      transition: 0.25s;
+    }
+
+    .btn:hover {
+      background: #ffcb47;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--color-primary);
+      padding: 0.8rem 1.4rem;
+      border-radius: 10px;
+      transition: 0.25s;
+    }
+
+    .btn-outline:hover {
+      background: var(--color-primary-soft);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <nav class="nav">
+    <div class="logo">
+      <div class="logo-mark"></div>
+      <div class="logo-text">
+        <strong>TVG</strong>
+        <span>Houston</span>
+      </div>
+    </div>
+
+    <div class="nav-links">
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#industry" class="nav-link">Oil & Gas</a>
+      <a href="#case-studies" class="nav-link">Case Studies</a>
+      <a href="#process" class="nav-link">Process</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+
+    <div class="nav-cta">
+      <span class="pill"><span>★</span> Energy Experts</span>
+      <a href="#contact" class="btn btn-outline">Get Proposal</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          TVG Houston — Oil & Gas Growth Partner
+        </div>
+
+        <h1 class="hero-title">
+          Strategic <span style="color: var(--color-primary)">Marketing & Web Solutions</span><br>
+          for Oil & Gas Companies in Houston.
+        </h1>
+
+        <p class="hero-sub">
+          TVG Houston helps energy, petrochem, and industrial companies build high-performing
+          digital systems that convert buyers into qualified opportunities.
+        </p>
+
+        <div class="hero-cta-row">
+          <a class="btn" href="#contact">To Buy Product Call →</a>
+          <a class="btn btn-outline" href="#case-studies">View Results</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <div class="hero-card-header">
+              <div>
+                <div class="hero-card-title">Live Tracking your Product</div>
+                <div style="font-size: 0.86rem;">Q3 Performance Overview</div>
+              </div>
+              <div class="hero-card-badge">
+                <span class="hero-card-badge-dot"></span>
+                On Track
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- SERVICES -->
+<section id="services" class="services section">
+    <div class="container">
+      <div class="section-heading">
+        <div class="tag">
+          <span class="tag-dot"></span>
+          Services
+        </div>
+        <h2>Full-funnel marketing for complex buying cycles</h2>
+        <p>
+          From first touch to RFQ, we combine strategy, creative, and performance media
+          into one integrated system built for oil &amp; gas decision-makers.
+        </p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <div class="service-card-inner">
+            <div class="service-icon">📊</div>
+            <h3>Strategy &amp; Positioning</h3>
+            <p>
+              Clarify your value in technical, safety-conscious markets. Messaging, ICP
+              definition, and GTM mapped to long buying cycles.
+            </p>
+            <div class="service-meta">
+              <span>Workshops · Playbooks</span>
+              <span>Avg. 3–5 weeks</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-card-inner">
+            <div class="service-icon">🌐</div>
+            <h3>Web &amp; Experience</h3>
+            <p>
+              High-converting websites built for engineers, procurement, and executives—
+              not just marketers.
+            </p>
+            <div class="service-meta">
+              <span>UX · UI · Dev</span>
+              <span>8–12 weeks</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <div class="service-card-inner">
+            <div class="service-icon">📈</div>
+            <h3>Demand &amp; Pipeline</h3>
+            <p>
+              SEO, content, and paid media tuned to technical keywords, tenders, and
+              high-value accounts across your regions.
+            </p>
+            <div class="service-meta">
+              <span>Always-on</span>
+              <span>Quarterly cycles</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRY INSIGHT -->
+  <section id="industry" class="industry-insight section">
+    <div class="container">
+      <div class="industry-grid">
+        <div>
+          <div class="tag">
+            <span class="tag-dot"></span>
+            Built for oil &amp; gas realities
+          </div>
+          <h2 style="margin-top: 0.8rem; margin-bottom: 0.5rem;">
+            We speak both marketing and engineering.
+          </h2>
+          <p style="color: var(--color-muted); font-size: 0.95rem;">
+            Your buyers don’t respond to fluffy campaigns. They care about uptime,
+            safety, compliance, and lifetime value. We translate technical advantages
+            into clear, credible narratives that move deals forward.
+          </p>
+          <div class="pill-list">
+            <span>Upstream &amp; offshore</span>
+            <span>Midstream &amp; logistics</span>
+            <span>Downstream &amp; petrochem</span>
+            <span>Industrial services</span>
+          </div>
+        </div>
+        <aside class="industry-panel">
+          <h3>What makes oil &amp; gas marketing different?</h3>
+          <ul>
+            <li>
+              <span class="industry-bullet">•</span>
+              <span>Long, multi-stakeholder buying journeys with high technical scrutiny.</span>
+            </li>
+            <li>
+              <span class="industry-bullet">•</span>
+              <span>Regional nuance across GCC, North America, and APAC markets.</span>
+            </li>
+            <li>
+              <span class="industry-bullet">•</span>
+              <span>Strict HSE, compliance, and ESG narratives to align with.</span>
+            </li>
+            <li>
+              <span class="industry-bullet">•</span>
+              <span>Offline relationship-building supported by digital touchpoints.</span>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+<!-- CONTACT SECTION -->
+<section id="contact" class="section" style="background: #0b1020; padding: 4rem 0;">
+  <div class="container">
+    <div style="text-align:center; margin-bottom: 2.5rem;">
+      <h2>Contact TVG Houston</h2>
+      <p style="color: var(--color-muted); max-width: 500px; margin: 0 auto;">
+        Have questions or need a custom project? We’re ready to help.
+      </p>
+    </div>
+
+    <div style="display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+
+      <!-- Contact Info -->
+      <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+        <h3 style="margin-bottom: 1rem;">Contact Details</h3>
+
+        <p>📞 <strong>Phone:</strong> <br><a href="tel:+18327660000">+1 (832) 766-0000</a></p>
+        <br>
+        <p>📧 <strong>Email:</strong> <br><a href="mailto:info@tvghouston.com">info@tvghouston.com</a></p>
+        <br>
+        <p>📍 <strong>Address:</strong><br>TVG Houston<br>1234 Energy Plaza<br>Houston, TX 77002</p>
+      </div>
+
+      <!-- Contact Form -->
+      <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+        <h3 style="margin-bottom: 1rem;">Send a Message</h3>
+
+        <form>
+          <label>Full Name</label>
+          <input type="text" placeholder="Your name" required>
+
+          <label>Email Address</label>
+          <input type="email" placeholder="you@example.com" required>
+
+          <label>Message</label>
+          <textarea placeholder="How can we help you?" required></textarea>
+
+          <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Send Message</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
