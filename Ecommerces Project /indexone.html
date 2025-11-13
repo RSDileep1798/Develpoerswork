@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TVG Houston</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --color-bg: #050814;
+      --color-bg-alt: #0b1020;
+      --color-primary: #f5b010;
+      --color-primary-soft: rgba(245, 176, 16, 0.1);
+      --color-text: #f5f5f5;
+      --color-muted: #a0a6c3;
+      --max-width: 1120px;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #141a33, #02030a 60%);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section {
+      padding: 4rem 0;
+    }
+
+    @media (min-width: 900px) {
+      .section {
+        padding: 5rem 0;
+      }
+    }
+
+    /* HEADER / NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(2, 3, 10, 0.93);
+      border-bottom: 1px solid rgba(63, 75, 135, 0.6);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 40%;
+      background: conic-gradient(
+        from 220deg,
+        #f5b010,
+        #ffffff,
+        #f5b010,
+        #f5b010
+      );
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2),
+        0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-text strong {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.72rem;
+      color: var(--color-muted);
+    }
+
+    .logo-text span {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+      color: var(--color-muted);
+    }
+
+    .nav-link {
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-primary);
+      transition: width 0.18s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 1.3rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: var(--color-primary);
+      color: #1b1304;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.15s ease, box-shadow 0.15s ease,
+        background 0.15s ease, color 0.15s ease;
+      gap: 0.35rem;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.45);
+      background: #ffd86d;
+    }
+
+    .btn-sign {
+      background: transparent;
+      color: var(--color-text);
+      border-color: rgba(160, 166, 195, 0.6);
+      box-shadow: none;
+      padding-inline: 1.1rem;
+    }
+
+    .btn-sign:hover {
+      background: rgba(245, 176, 16, 0.14);
+      color: var(--color-primary);
+      border-color: rgba(245, 176, 16, 0.8);
+    }
+
+    .nav-menu-toggle {
+      display: inline-flex;
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    @media (min-width: 850px) {
+      .nav-links {
+        display: flex;
+      }
+      .nav-menu-toggle {
+        display: none;
+      }
+    }
+
+    /* HERO */
+    .hero {
+      padding-top: 3.5rem;
+      padding-bottom: 4rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero {
+        padding-top: 4.5rem;
+        padding-bottom: 4.5rem;
+      }
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+        align-items: center;
+      }
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.25rem 0.8rem;
+      border-radius: var(--radius-pill);
+      background: rgba(245, 176, 16, 0.08);
+      color: var(--color-primary);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--color-primary);
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      line-height: 1.05;
+      margin-top: 1rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-title span {
+      color: var(--color-primary);
+    }
+
+    .hero-sub {
+      color: var(--color-muted);
+      max-width: 34rem;
+      font-size: 0.98rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin: 1.8rem 0 1rem;
+    }
+
+    .hero-meta {
+      font-size: 0.85rem;
+      color: var(--color-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .hero-meta strong {
+      color: var(--color-text);
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top, #151c3a, #050814);
+      border-radius: 22px;
+      padding: 1.5rem 1.4rem;
+      border: 1px solid rgba(88, 106, 185, 0.7);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-card p {
+      font-size: 0.88rem;
+      color: var(--color-muted);
+    }
+
+    .hero-card-list {
+      margin-top: 0.9rem;
+      list-style: none;
+      font-size: 0.86rem;
+      color: var(--color-muted);
+    }
+
+    .hero-card-list li {
+      margin-bottom: 0.45rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .hero-card-list li span:first-child {
+      color: var(--color-primary);
+    }
+
+    /* SECTION HEADING */
+    .section-heading {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-heading h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-heading p {
+      color: var(--color-muted);
+      max-width: 32rem;
+      margin: 0 auto;
+      font-size: 0.95rem;
+    }
+
+    /* ABOUT */
+    .about {
+      background: var(--color-bg-alt);
+    }
+
+    .about-grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 900px) {
+      .about-grid {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        align-items: center;
+      }
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .pill {
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(160, 166, 195, 0.5);
+      font-size: 0.78rem;
+      color: var(--color-muted);
+    }
+
+    .about-card {
+      background: rgba(3, 7, 30, 0.95);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(63, 75, 135, 0.7);
+      padding: 1.3rem 1.2rem;
+      font-size: 0.9rem;
+      color: var(--color-muted);
+    }
+
+    /* SERVICES & PRODUCTS */
+    .services {
+      background: var(--color-bg);
+    }
+
+    .service-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .service-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .service-card {
+      background: radial-gradient(circle at top left, #151b32, #050814);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(63, 75, 135, 0.7);
+      padding: 1.3rem 1.2rem;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+    }
+
+    .service-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .service-card p {
+      color: var(--color-muted);
+      font-size: 0.88rem;
+    }
+
+    .service-tag {
+      font-size: 0.78rem;
+      color: var(--color-primary);
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* PRODUCT GRID */
+    .products {
+      margin-top: 3rem;
+    }
+
+    .products-title-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .products-title-row h3 {
+      font-size: 1.1rem;
+    }
+
+    .products-title-row span {
+      font-size: 0.8rem;
+      color: var(--color-muted);
+    }
+
+    .product-grid {
+      display: grid;
+      gap: 1.3rem;
+    }
+
+    @media (min-width: 900px) {
+      .product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .product-card {
+      background: rgba(3, 7, 30, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(88, 106, 185, 0.7);
+      padding: 1.1rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    .product-image {
+      height: 120px;
+      border-radius: 14px;
+      margin-bottom: 0.8rem;
+      background: radial-gradient(circle at top, #f5b010, #3b2b0a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #1b1304;
+    }
+
+    .product-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .product-price {
+      font-size: 0.9rem;
+      color: var(--color-primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .product-meta {
+      font-size: 0.8rem;
+      color: var(--color-muted);
+    }
+
+    .product-meta strong {
+      color: var(--color-text);
+    }
+
+    .product-cta {
+      margin-top: 0.7rem;
+      font-size: 0.8rem;
+    }
+
+    /* INDUSTRIES */
+    .industries {
+      background: var(--color-bg-alt);
+    }
+
+    .industries-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .industries-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .industry-card {
+      background: rgba(3, 7, 30, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(63, 75, 135, 0.8);
+      padding: 1.2rem 1.1rem;
+      font-size: 0.88rem;
+      color: var(--color-muted);
+    }
+
+    .industry-card h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.4rem;
+      color: var(--color-text);
+    }
+
+    /* CONTACT */
+    .contact {
+      background: var(--color-bg);
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 900px) {
+      .contact-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+        align-items: flex-start;
+      }
+    }
+
+    .contact-info {
+      font-size: 0.9rem;
+      color: var(--color-muted);
+    }
+
+    .contact-info p {
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-info a {
+      color: var(--color-primary);
+    }
+
+    .contact-card {
+      background: rgba(3, 7, 30, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(63, 75, 135, 0.8);
+      padding: 1.3rem 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .field-group {
+      margin-bottom: 0.9rem;
+    }
+
+    .field-label {
+      display: block;
+      font-size: 0.82rem;
+      margin-bottom: 0.2rem;
+      color: var(--color-muted);
+    }
+
+    .field-input,
+    .field-textarea {
+      width: 100%;
+      padding: 0.65rem 0.75rem;
+      border-radius: 10px;
+      border: 1px solid rgba(160, 166, 195, 0.4);
+      background: rgba(5, 8, 20, 0.9);
+      color: var(--color-text);
+      font-size: 0.86rem;
+      outline: none;
+    }
+
+    .field-textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .field-input::placeholder,
+    .field-textarea::placeholder {
+      color: rgba(160, 166, 195, 0.7);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #02030a;
+      border-top: 1px solid rgba(63, 75, 135, 0.7);
+      padding: 1.4rem 0;
+      font-size: 0.8rem;
+      color: var(--color-muted);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    /* AI CHAT WIDGET (bottom-left) */
+    .chat-toggle {
+      display: none;
+    }
+
+    .chat-widget {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      width: 280px;
+      max-width: 90vw;
+      background: rgba(3, 7, 30, 0.98);
+      border-radius: 18px;
+      border: 1px solid rgba(88, 106, 185, 0.8);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 50;
+      transform-origin: bottom left;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    /* When toggle is unchecked, collapse the chat window */
+    .chat-toggle:not(:checked) + .chat-widget {
+      transform: scale(0.1);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .chat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.55rem 0.7rem;
+      background: linear-gradient(135deg, #f5b010, #ffce5d);
+      color: #1b1304;
+      cursor: pointer;
+    }
+
+    .chat-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .chat-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: #1b1304;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: #f5f5f5;
+      font-weight: 700;
+    }
+
+    .chat-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .chat-status {
+      font-size: 0.72rem;
+    }
+
+    .chat-header-right {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    .chat-body {
+      padding: 0.7rem 0.7rem 0.4rem;
+      max-height: 220px;
+      overflow-y: auto;
+      background: radial-gradient(circle at top, #151b32, #050814);
+    }
+
+    .chat-msg-row {
+      margin-bottom: 0.5rem;
+      display: flex;
+    }
+
+    .chat-msg {
+      padding: 0.45rem 0.6rem;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      line-height: 1.4;
+      max-width: 90%;
+    }
+
+    .from-bot .chat-msg {
+      background: rgba(10, 17, 45, 0.95);
+      border: 1px solid rgba(88, 106, 185, 0.9);
+    }
+
+    .from-user {
+      justify-content: flex-end;
+    }
+
+    .from-user .chat-msg {
+      background: rgba(245, 176, 16, 0.1);
+      border: 1px solid rgba(245, 176, 16, 0.7);
+    }
+
+    .chat-input-row {
+      padding: 0.45rem 0.6rem 0.55rem;
+      border-top: 1px solid rgba(63, 75, 135, 0.8);
+      background: rgba(5, 8, 20, 0.98);
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .chat-input {
+      flex: 1;
+      border-radius: 999px;
+      border: 1px solid rgba(88, 106, 185, 0.7);
+      padding: 0.35rem 0.6rem;
+      font-size: 0.78rem;
+      background: #050814;
+      color: var(--color-text);
+      outline: none;
+    }
+
+    .chat-send {
+      font-size: 0.8rem;
+      border: none;
+      background: var(--color-primary);
+      border-radius: 999px;
+      padding: 0.35rem 0.6rem;
+      cursor: pointer;
+    }
+
+    .chat-hint {
+      font-size: 0.7rem;
+      color: var(--color-muted);
+      padding: 0 0.7rem 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .chat-widget {
+        left: 0.75rem;
+        bottom: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <div class="logo-mark"></div>
+        <div class="logo-text">
+          <strong>TVG</strong>
+          <span>Houston</span>
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#about" class="nav-link">About TVG Houston</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#industries" class="nav-link">Industries</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+
+        <a href="#contact" class="btn btn-sign">Sign</a>
+
+        <div class="nav-menu-toggle">☰</div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero section" id="top">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="tag">
+              <span class="tag-dot"></span>
+              International Packaging & Logistics
+            </div>
+            <h1 class="hero-title">
+              TVG Houston — <span>Premium bottle products</span> shipped safely worldwide.
+            </h1>
+            <p class="hero-sub">
+              We manufacture and supply high-quality industrial and consumer bottles with
+              secure, trackable delivery to your destination. From lab-grade containers
+              to bulk export packaging, TVG Houston is your trusted global partner.
+            </p>
+
+            <div class="hero-cta-row">
+              <a href="#services" class="btn">
+                View Services
+              </a>
+              <a href="#contact" class="btn btn-sign">
+                Talk to our team
+              </a>
+            </div>
+
+            <div class="hero-meta">
+              <span>🌍 Shipping to <strong>North America, Europe, Middle East & Asia</strong></span>
+              <span>✅ Safety-checked, damage-free delivery</span>
+            </div>
+          </div>
+
+          <aside class="hero-card">
+            <h3>Why customers choose TVG Houston</h3>
+            <p>
+              Every bottle we ship is designed for durability, safety and consistency.
+              Our logistics team monitors each shipment from our warehouse to your dock.
+            </p>
+            <ul class="hero-card-list">
+              <li><span>•</span><span>Impact-resistant bottles for liquids, chemicals & food-grade products.</span></li>
+              <li><span>•</span><span>Transparent pricing in USD with volume discounts for regular buyers.</span></li>
+              <li><span>•</span><span>Flexible packaging: pallets, crates and custom labelling for exports.</span></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT TVG HOUSTON -->
+    <section id="about" class="about section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>About TVG Houston</h2>
+          <p>
+            TVG Houston is a Houston-based global supplier of specialty bottles and
+            containers for industrial, chemical, cosmetic and food applications.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div>
+            <p style="color: var(--color-muted); font-size: 0.95rem;">
+              We combine modern manufacturing standards with reliable international
+              logistics. Every product is inspected for quality, capacity and finish
+              before it leaves our facility. Whether you are a growing brand or an
+              established industrial buyer, we help you ship safely and on time.
+            </p>
+            <div class="pill-row">
+              <span class="pill">High-clarity PET & glass bottles</span>
+              <span class="pill">Chemical-resistant containers</span>
+              <span class="pill">Food-grade certified options</span>
+              <span class="pill">Export packaging & labelling</span>
+            </div>
+          </div>
+
+          <div class="about-card">
+            <strong style="display:block; margin-bottom:0.4rem;">Our promise</strong>
+            <p>
+              • Consistent bottle quality, batch after batch.<br/>
+              • Transparent USD pricing with clear specifications.<br/>
+              • Safety-focused packing to reduce transit damage.<br/>
+              • Dedicated support from quote to final delivery.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES & PRODUCTS -->
+    <section id="services" class="services section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Services</h2>
+          <p>
+            From product selection to international shipping, TVG Houston manages each
+            step so your goods arrive safely and ready to use or sell.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-tag">Consultation</div>
+            <h3>Product selection & sizing</h3>
+            <p>
+              We help you choose the right bottle type, capacity, neck finish and
+              dimensions for your product and market.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-tag">Packaging</div>
+            <h3>Safe export packaging</h3>
+            <p>
+              Palletized, shrink-wrapped and custom crated shipments, designed to
+              protect bottles from impact during long-distance freight.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-tag">Logistics</div>
+            <h3>International delivery</h3>
+            <p>
+              Door-to-port or door-to-door options, with tracking and documentation for
+              customs, hazardous materials and certifications.
+            </p>
+          </article>
+        </div>
+
+        <!-- PRODUCTS -->
+        <div class="products">
+          <div class="products-title-row">
+            <h3>Sample bottle products</h3>
+            <span>All prices shown in USD — sizes include approximate height & width.</span>
+          </div>
+
+          <div class="product-grid">
+            <article class="product-card">
+              <div class="product-image">Amber Glass Bottle</div>
+              <div class="product-name">Amber Glass Bottle 500 ml</div>
+              <div class="product-price">$12.90 / pack of 6</div>
+              <div class="product-meta">
+                <div><strong>Size:</strong> Height 22 cm · Width 7 cm</div>
+                <div><strong>Use:</strong> Essential oils, serums, lab liquids</div>
+              </div>
+              <div class="product-cta">
+                <span>✅ In stock · Ships internationally</span>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">Clear PET Bottle</div>
+              <div class="product-name">Clear PET Bottle 1 L</div>
+              <div class="product-price">$15.50 / pack of 8</div>
+              <div class="product-meta">
+                <div><strong>Size:</strong> Height 27 cm · Width 8 cm</div>
+                <div><strong>Use:</strong> Beverages, household liquids</div>
+              </div>
+              <div class="product-cta">
+                <span>✅ Lightweight · Food-grade material</span>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">HDPE Chemical Bottle</div>
+              <div class="product-name">HDPE Chemical Bottle 5 L</div>
+              <div class="product-price">$19.80 / pack of 4</div>
+              <div class="product-meta">
+                <div><strong>Size:</strong> Height 30 cm · Width 13 cm</div>
+                <div><strong>Use:</strong> Industrial & chemical storage</div>
+              </div>
+              <div class="product-cta">
+                <span>✅ Thick walls · Safety caps available</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDUSTRIES -->
+    <section id="industries" class="industries section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Industries we serve</h2>
+          <p>
+            Our bottle solutions support both consumer brands and heavy industry,
+            delivering the right packaging for every application.
+          </p>
+        </div>
+
+        <div class="industries-grid">
+          <article class="industry-card">
+            <h3>Food & Beverage</h3>
+            <p>
+              Bottles for juices, sauces, edible oils and specialty drinks, with
+              food-grade certifications and tamper-evident options.
+            </p>
+          </article>
+
+          <article class="industry-card">
+            <h3>Chemical & Industrial</h3>
+            <p>
+              High-density containers engineered for chemicals, lubricants, cleaning
+              products and lab environments.
+            </p>
+          </article>
+
+          <article class="industry-card">
+            <h3>Cosmetics & Personal Care</h3>
+            <p>
+              Elegant, durable containers for shampoos, lotions, serums and oils,
+              ready for retail presentation and export.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Contact TVG Houston</h2>
+          <p>
+            Share your requirements and we’ll prepare a tailored quote including
+            product specs, USD pricing and delivery timelines.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <p><strong>Phone:</strong> <a href="tel:+18320000000">+1 (832) 000-0000</a></p>
+            <p><strong>Email:</strong> <a href="mailto:sales@tvghouston.com">sales@tvghouston.com</a></p>
+            <p><strong>Location:</strong><br>
+              TVG Houston<br>
+              Energy Commerce Park<br>
+              Houston, Texas, USA
+            </p>
+            <p style="margin-top: 1rem;">
+              We support shipments to ports and warehouses worldwide. All orders are
+              packed with reinforced materials to reduce breakage and ensure safe,
+              reliable delivery to your destination.
+            </p>
+          </div>
+
+          <div class="contact-card">
+            <form>
+              <div class="field-group">
+                <label class="field-label">Full name</label>
+                <input class="field-input" type="text" placeholder="Your name" required />
+              </div>
+
+              <div class="field-group">
+                <label class="field-label">Business email</label>
+                <input class="field-input" type="email" placeholder="you@company.com" required />
+              </div>
+
+              <div class="field-group">
+                <label class="field-label">Country / destination</label>
+                <input class="field-input" type="text" placeholder="e.g. USA, Germany, UAE" />
+              </div>
+
+              <div class="field-group">
+                <label class="field-label">What are you looking for?</label>
+                <textarea class="field-textarea" placeholder="Bottle type, sizes, quantities, preferred delivery time..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn" style="width: 100%; margin-top: 0.4rem;">
+                Send request
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span>© 2025 TVG Houston. All rights reserved.</span>
+      <span>Premium bottle products · International safe delivery</span>
+    </div>
+  </footer>
+
+  <!-- AI CHAT WIDGET (BOTTOM LEFT, OPENS BY DEFAULT) -->
+  <input type="checkbox" id="chat-toggle" class="chat-toggle" checked />
+  <div class="chat-widget">
+    <label for="chat-toggle" class="chat-header">
+      <div class="chat-header-left">
+        <div class="chat-avatar">AI</div>
+        <div>
+          <div class="chat-title">TVG Houston Assistant</div>
+          <div class="chat-status">Online · Ask about products & shipping</div>
+        </div>
+      </div>
+      <div class="chat-header-right">⌄</div>
+    </label>
+
+    <div class="chat-body">
+      <div class="chat-msg-row from-bot">
+        <div class="chat-msg">
+          Hi! I’m your AI assistant from TVG Houston. I can help you with bottle sizes,
+          pricing in USD and international delivery options.
+        </div>
+      </div>
+      <div class="chat-msg-row from-user">
+        <div class="chat-msg">
+          I need bottles for an international shipment.
+        </div>
+      </div>
+      <div class="chat-msg-row from-bot">
+        <div class="chat-msg">
+          Great! Tell me what product you’re bottling, how many units you need and your
+          destination country, and we’ll suggest suitable bottles and packaging.
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-input-row">
+      <input class="chat-input" type="text" placeholder="Type your question here..." />
+      <button class="chat-send">➤</button>
+    </div>
+    <div class="chat-hint">
+      This demo chat is for display only. Connect a live chat or AI backend to make it fully interactive.
+    </div>
+  </div>
+</body>
+</html>
