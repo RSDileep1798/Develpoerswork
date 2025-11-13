@@ -1,0 +1,24 @@
+{
+  "name": "develpoerswork",
+  "version": "1.0.0",
+  "description": "This guide is a collection of Python code snippets that cover the basics of the language. It is intended to be a quick reference for anyone who is new to Python or needs a refresher.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RSDileep1798/Develpoerswork.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RSDileep1798/Develpoerswork/issues"
+  },
+  "homepage": "https://github.com/RSDileep1798/Develpoerswork#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
